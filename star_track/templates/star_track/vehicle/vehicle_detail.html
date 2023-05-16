@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+<div class="row"></div>
+<br/>
+<div class="row">
+ <div class="col-md-1 col-xs-1 col-sm-1">
+    </div>
+ <div class="col-md-8 col-xs-8 col-sm-8">
+  <p class="h2"> Number			    : 	{{vehicle.vh_num}}  </p>
+  <p class="h2"> Vehicle Code		: 	{{vehicle.vh_code}}  </p>
+  <p class="h2"> Vendor Number		: 	{{vehicle.vh_vn_num}} </p>
+  <p class="h2"> Reg. Number	    :	{{vehicle.vh_reg_num}} </p>
+  <p class="h2"> Model	            :	{{vehicle.vh_model}} </p>
+  <p class="h2"> Make           	:	{{vehicle.vh_make}} </p>
+  <p class="h2"> Type   		    :	{{vehicle.vh_type}} </p>
+  <p class="h2"> Date Registered  	:	{{vehicle.vh_reg_date}} </p>
+
+    </div>
+ <div class="col-md-1 col-xs-1 col-sm-1">
+  <a href="{% url 'editadvances' advance.pk %}">
+   <button type="button" class="btn btn-info">
+    <span class="glyphicon glyphicon-pencil"></span>
+   </button>
+  </a>
+ </div>
+ <div class="col-md-1 col-xs-1 col-sm-1">
+  <a href="{% url 'deleteadvances' advance.pk %}">
+   <button type="button" class="btn btn-danger">
+    <span class="glyphicon glyphicon-trash"></span>
+   </button>
+  </a>
+ </div>
+ <div class="col-md-1 col-xs-1 col-sm-1"></div>
+</div>
+<div class="row">
+ <div class="col-md-1 col-xs-1 col-sm-1"></div>
+ <div class="col-md-10 col-xs-10 col-sm-10">
+
+ </div>
+ <div class="col-md-1 col-xs-1 col-sm-1"></div>
+</div>
+</div>
+{% endblock %}

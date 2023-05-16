@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+<div class="row"></div>
+<br/>
+<div class="row">
+ <div class="col-md-1 col-xs-1 col-sm-1">
+    </div>
+ <div class="col-md-8 col-xs-8 col-sm-8">
+  <p class="h2"> Number			    : 	{{consignment.cn_num}}</p>
+  <p class="h2"> Number	Account		: 	{{consignment.cn_code}}</p>
+  <p class="h2"> Number	Name		: 	{{consignment.cn_vh_num}}</p>
+  <p class="h2"> Reg. Date		    :	{{consignment.cn_dr_num}}</p>
+  <p class="h2"> Last Return Date	:	{{consignment.cn_booked_date}}</p>
+  <p class="h2"> Last Return Period	:	{{consignment.cn_from}}</p>
+  <p class="h2"> Wage Bill		    :	{{consignment.cn_ref}}</p>
+  <p class="h2"> Account Status  	:	{{consignment.cn_status}}</p>
+
+   <p class="h2"> Account Status  	:	{{consignment.cn_in_date}}</p>
+   <p class="h2"> Account Status  	:	{{consignment.cn_in_weight}}</p>
+   <p class="h2"> Account Status  	:	{{consignment.cn_in_units}}</p>
+   <p class="h2"> Account Status  	:	{{consignment.cn_out_date}}</p>
+   <p class="h2"> Account Status  	:	{{consignment.cn_out_wght}}</p>
+   <p class="h2"> Account Status  	:	{{consignment.cn_out_units}}</p>
+
+    </div>
+ <div class="col-md-1 col-xs-1 col-sm-1">
+  <a href="{% url 'editconsignment' consignment.pk %}">
+   <button type="button" class="btn btn-info">
+    <span class="glyphicon glyphicon-pencil"></span>
+   </button>
+  </a>
+ </div>
+
+    <div class="col-md-1">
+    <a href="{% url 'editconsignmentin' consignment.pk %}">
+     <button type="button" class="btn btn-info">
+      <span class="glyphicon glyphicon-pencil"></span>
+     </button>
+    </a>
+   </div>
+
+   <div class="col-md-1">
+    <a href="{% url 'editconsignmentout' consignment.pk %}">
+     <button type="button" class="btn btn-info">
+      <span class="glyphicon glyphicon-pencil"></span>
+     </button>
+    </a>
+   </div>
+
+ <div class="col-md-1 col-xs-1 col-sm-1">
+  <a href="{% url 'deleteconsignment' consignment.pk %}">
+   <button type="button" class="btn btn-danger">
+    <span class="glyphicon glyphicon-trash"></span>
+   </button>
+  </a>
+ </div>
+ <div class="col-md-1 col-xs-1 col-sm-1"></div>
+</div>
+<div class="row">
+ <div class="col-md-1 col-xs-1 col-sm-1"></div>
+ <div class="col-md-10 col-xs-10 col-sm-10">
+
+ </div>
+ <div class="col-md-1 col-xs-1 col-sm-1"></div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+{% block content %}
+<br>
+<br>
+Consignment Listing...
+<br>
+<br>
+<br>
+
+
+  <form style="margin-left:2.5em" method="get">
+    {{ filter.form.as_p }}
+
+<!--  <label for="period">Transaction Listing:</label>
+  <input type="number" id="period" name="period"><br><br> -->
+
+    <button type="submit">Search</button>
+  </form>
+
+  <div class="col-md-10 col-xs-10 col-sm-10">
+  <ul>
+      <br>
+      Total Planned         :  {{ pl_total.pl_total|floatformat:2|intcomma }}
+      <br>
+      Total Inbound         :  {{ in_total.i_total|floatformat:2|intcomma }}
+      <br>
+      Total  Outbound       :  {{ out_total.out_total|floatformat:2|intcomma }}
+      <br>
+      Net                   :  {{ out_total.out_total|floatformat:2|intcomma }}
+      <br>
+      <br>
+      Num  Code  Booked Date Planned W Cons Type   In Date   Out Date     In Weight  Out Weight
+      <br>
+      <br>
+
+  {% for cons in filter.qs %}
+
+       <li> <a>
+        {{ cons.cn_num |stringformat:"04d" }}*{{ cons.cn_code}}*
+           {{ cons.cn_booked_date}}*{{ cons.cn_pl_weight |floatformat:2|intcomma }}*
+           {{ cons.cn_type }}*{{ cons.cn_in_date }}*{{ cons.cn_out_date}}*
+           {{ cons.cn_in_weight|floatformat:2|intcomma }}*{{ cons.cn_out_wght |floatformat:2|intcomma }}
+       </a> </li>
+  {% endfor %}
+
+  </ul>
+
+  </div>
+
+{% endblock %}

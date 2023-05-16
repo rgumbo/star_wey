@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-md-1 col-xs-1 col-sm-1"></div>
+   <div  class="col-md-10 col-xs-10 col-sm-10">
+    <h3 class="round3" style="text-align:center;">Consignments</h3>
+  </div>
+  <div class="col-md-1 col-xs-1 col-sm-1"></div>
+ </div>
+ <div class="row">
+  <div class="col-md-10 col-xs-10 col-sm-10"></div>
+  <div class="col-md-2 col-xs-1 col-sm-1">
+   <br/>
+            <a href="{% url 'addconsignment' %}">
+              <button type="button" class="btn btn-success">
+                <span class="glyphicon glyphicon-plus"></span>
+              </button>
+            </a>
+  </div>
+ </div>
+ <br/>
+ {% for consignment in Consignment_list %}
+  <div class="row">
+   <div class="col-md-1 col-xs-1 col-sm-1"></div>
+   <div class="col-md-7 col-xs-7 col-sm-7">
+    <ul class="list-group">
+       <li class="list-group-item ">
+     <a href="{% url 'editconsignment' consignment.pk %}">{{ consignment.cn_booked_date }}-{{ consignment.cn_num }}
+      -{{ consignment.cn_from }}-{{ consignment.cn_ref }}-{{ consignment.cn_dr_num }}-{{ consignment.cn_vh_num }}</a>  <span class="badge"></span>
+    </li>
+     </ul>
+    <br>
+   </div>
+
+   <div class="col-md-1">
+    <a href="{% url 'editconsignment' consignment.pk %}">
+     <button type="button" class="btn btn-info">
+      <span class="glyphicon glyphicon-pencil"></span>
+     </button>
+    </a>
+   </div>
+
+   <div class="col-md-1">
+    <a href="{% url 'editconsignmentin' consignment.pk %}">
+     <button type="button" class="btn btn-info">
+      <span class="glyphicon glyphicon-arrow-right"></span>
+     </button>
+    </a>
+   </div>
+
+   <div class="col-md-1">
+    <a href="{% url 'editconsignmentout' consignment.pk %}">
+     <button type="button" class="btn btn-info">
+      <span class="glyphicon glyphicon-arrow-left"></span>
+     </button>
+    </a>
+   </div>
+
+   <div class="col-md-1 col-xs-1 col-sm-1"></div>
+  </div>
+ {% endfor %}
+</div>
+{% endblock %}
